@@ -1,0 +1,20 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+@hostname=localhost
+@port=5000
+@host={{hostname}}:{{port}}
+
+POST http://{{hostname}}:{{port}}/cadastro
+Content-Type: application/json
+
+{
+    
+}
+
+###
+
+GET http://{{hostname}}:{{port}}/cadastro
+
+###
+
+GET http://{{hostname}}:{{port}}/cadastro/12345678909

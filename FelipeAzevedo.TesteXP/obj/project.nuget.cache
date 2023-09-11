@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3u7jxClRhIs8EEiuR0xgYiBRdYPuoEZerhhXrZ54jX76uKSVmppazAccogsupuR9Gf8rdiTDjKYDd/nZNMZUaQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Felipe Azevedo\\source\\repos\\FelipeAzevedo.TesteXP\\FelipeAzevedo.TesteXP\\FelipeAzevedo.TesteXP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Felipe Azevedo\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.4\\microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512"
+  ],
+  "logs": []
+}
