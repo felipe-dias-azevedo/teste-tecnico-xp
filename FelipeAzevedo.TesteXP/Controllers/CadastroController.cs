@@ -1,9 +1,9 @@
 ﻿using FelipeAzevedo.TesteXP.Business;
-using FelipeAzevedo.TesteXP.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using FelipeAzevedo.TesteXP.ViewModels.Cadastro;
 
 namespace FelipeAzevedo.TesteXP.Controllers
 {
@@ -31,10 +31,10 @@ namespace FelipeAzevedo.TesteXP.Controllers
             return Ok(clientes);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> ObterCliente([FromRoute] string id)
+        [HttpGet("{cpf}")]
+        public async Task<IActionResult> ObterCliente([FromRoute] string cpf)
         {
-            var cliente = await _cadastroBusiness.ObterCliente(id);
+            var cliente = await _cadastroBusiness.ObterCliente(cpf);
 
             if (cliente == null)
             {

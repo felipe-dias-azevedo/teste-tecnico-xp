@@ -1,14 +1,23 @@
 ﻿using FelipeAzevedo.TesteXP.Models;
-using FelipeAzevedo.TesteXP.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using FelipeAzevedo.TesteXP.Repositories.Cliente;
+using FelipeAzevedo.TesteXP.ViewModels.Cadastro;
 
 namespace FelipeAzevedo.TesteXP.Business
 {
     public class CadastroBusiness : ICadastroBusiness
     {
-        public Task<string> CadastrarCliente(CadastroClienteViewModel cadastroCliente)
+        private readonly IClienteRepository _clienteRepository;
+
+        public CadastroBusiness(IClienteRepository clienteRepository)
+        {
+            _clienteRepository = clienteRepository;
+        }
+        
+        public async Task<string> CadastrarCliente(CadastroClienteViewModel cadastroCliente)
         {
             var id = Guid.NewGuid().ToString();
 
@@ -17,17 +26,31 @@ namespace FelipeAzevedo.TesteXP.Business
                 Id = id,
             };
 
-            throw new System.NotImplementedException();
+            await _clienteRepository.Inserir(cliente);
+
+            return id;
         }
 
-        public Task<ClienteViewModel?> ObterCliente(string id)
+        public async Task<ClienteEnderecoViewModel?> ObterCliente(string cpf)
         {
-            throw new System.NotImplementedException();
+            var cliente = await _clienteRepository.ObterPorCpf(cpf);
+
+            if (cliente == null)
+            {
+                return null;
+            }
+
+            return new ClienteEnderecoViewModel
+            {
+                
+            };
         }
 
-        public Task<IEnumerable<ClienteViewModel>> ObterClientes()
+        public async Task<IEnumerable<ClienteViewModel>> ObterClientes()
         {
-            throw new System.NotImplementedException();
+            var clientes = await _clienteRepository.Obter();
+
+            return clientes.Select(x => new ClienteViewModel());
         }
     }
 }

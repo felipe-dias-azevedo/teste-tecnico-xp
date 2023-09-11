@@ -1,6 +1,6 @@
-﻿namespace FelipeAzevedo.TesteXP.ViewModels
+﻿namespace FelipeAzevedo.TesteXP.ViewModels.Cadastro
 {
-    public class CadastroClienteViewModel
+    public class ClienteViewModel
     {
         public string Nome { get; set; }
 
