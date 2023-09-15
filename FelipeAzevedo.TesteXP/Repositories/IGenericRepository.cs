@@ -8,5 +8,9 @@ namespace FelipeAzevedo.TesteXP.Repositories
         public Task<IEnumerable<T>> Obter();
 
         public Task Inserir(T model);
+
+        public Task Inserir(IEnumerable<T> model);
+
+        public Task Commitar();
     }
 }

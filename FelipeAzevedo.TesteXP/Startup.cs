@@ -1,5 +1,6 @@
 using FelipeAzevedo.TesteXP.Business;
 using FelipeAzevedo.TesteXP.Repositories.Cliente;
+using FelipeAzevedo.TesteXP.Repositories.Endereco;
 using FelipeAzevedo.TesteXP.Resources.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,6 +37,7 @@ namespace FelipeAzevedo.TesteXP
             services.AddTransient<ICadastroBusiness, CadastroBusiness>();
             
             services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddTransient<IEnderecoRepository, EnderecoRepository>();
 
             services.AddControllers();
             

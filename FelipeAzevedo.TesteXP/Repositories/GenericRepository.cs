@@ -23,6 +23,15 @@ namespace FelipeAzevedo.TesteXP.Repositories
         public async Task Inserir(T model)
         {
             await _ctx.Set<T>().AddAsync(model);
+        }
+
+        public async Task Inserir(IEnumerable<T> model)
+        {
+            await _ctx.Set<T>().AddRangeAsync(model);
+        }
+
+        public async Task Commitar()
+        {
             await _ctx.SaveChangesAsync();
         }
     }

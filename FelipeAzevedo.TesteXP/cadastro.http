@@ -8,7 +8,15 @@ POST http://{{hostname}}:{{port}}/cadastro
 Content-Type: application/json
 
 {
-    
+    "cpf": "12345678909",
+    "nome": "Felipe Azevedo",
+    "telefone": "11912345678",
+    "email": "felipe@azevedo.com",
+    "enderecos": [
+        {
+            "cep": "01234567"
+        }
+    ]
 }
 
 ###
