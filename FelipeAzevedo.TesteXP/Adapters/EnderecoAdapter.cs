@@ -1,6 +1,5 @@
 ﻿using FelipeAzevedo.TesteXP.Models;
 using FelipeAzevedo.TesteXP.ViewModels.Cadastro;
-using System;
 
 namespace FelipeAzevedo.TesteXP.Adapters
 {

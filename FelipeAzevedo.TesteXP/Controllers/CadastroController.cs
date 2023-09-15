@@ -18,7 +18,7 @@ namespace FelipeAzevedo.TesteXP.Controllers
             _cadastroBusiness = cadastroBusiness;
         }
 
-        [HttpGet]
+        [HttpGet("clientes")]
         public async Task<IActionResult> ObterClientes()
         {
             var clientes = await _cadastroBusiness.ObterClientes();
@@ -31,7 +31,7 @@ namespace FelipeAzevedo.TesteXP.Controllers
             return Ok(clientes);
         }
 
-        [HttpGet("{cpf}")]
+        [HttpGet("clientes/{cpf}")]
         public async Task<IActionResult> ObterCliente([FromRoute] string cpf)
         {
             var cliente = await _cadastroBusiness.ObterCliente(cpf);
@@ -44,12 +44,13 @@ namespace FelipeAzevedo.TesteXP.Controllers
             return Ok(cliente);
         }
 
-        [HttpPost]
+        [HttpPost("clientes")]
         public async Task<IActionResult> CadastrarCliente([FromBody] CadastroClienteViewModel cadastroCliente)
         {
             await _cadastroBusiness.CadastrarCliente(cadastroCliente);
 
             return StatusCode((int) HttpStatusCode.Created);
         }
+
     }
 }

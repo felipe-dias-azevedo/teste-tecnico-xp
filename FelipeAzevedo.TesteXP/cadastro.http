@@ -4,7 +4,7 @@
 @port=5000
 @host={{hostname}}:{{port}}
 
-POST http://{{hostname}}:{{port}}/cadastro
+POST http://{{hostname}}:{{port}}/cadastro/clientes
 Content-Type: application/json
 
 {
@@ -21,8 +21,8 @@ Content-Type: application/json
 
 ###
 
-GET http://{{hostname}}:{{port}}/cadastro
+GET http://{{hostname}}:{{port}}/cadastro/clientes
 
 ###
 
-GET http://{{hostname}}:{{port}}/cadastro/12345678909
+GET http://{{hostname}}:{{port}}/cadastro/clientes/12345678909

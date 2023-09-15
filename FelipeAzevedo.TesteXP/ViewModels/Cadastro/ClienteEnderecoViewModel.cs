@@ -4,6 +4,8 @@ namespace FelipeAzevedo.TesteXP.ViewModels.Cadastro
 {
     public class ClienteEnderecoViewModel
     {
+        public string Cpf { get; set; }
+
         public string Nome { get; set; }
 
         public string Telefone { get; set; }
