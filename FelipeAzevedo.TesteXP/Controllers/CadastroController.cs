@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using FelipeAzevedo.TesteXP.ViewModels.Cadastro;
+using System;
 
 namespace FelipeAzevedo.TesteXP.Controllers
 {
@@ -47,9 +48,16 @@ namespace FelipeAzevedo.TesteXP.Controllers
         [HttpPost("clientes")]
         public async Task<IActionResult> CadastrarCliente([FromBody] CadastroClienteViewModel cadastroCliente)
         {
-            await _cadastroBusiness.CadastrarCliente(cadastroCliente);
+            try
+            {
+                await _cadastroBusiness.CadastrarCliente(cadastroCliente);
 
-            return StatusCode((int) HttpStatusCode.Created);
+                return StatusCode((int)HttpStatusCode.Created);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
     }

@@ -22,6 +22,13 @@ namespace FelipeAzevedo.TesteXP.Business
         
         public async Task<string> CadastrarCliente(CadastroClienteViewModel cadastroCliente)
         {
+            var clienteExistente = await _clienteRepository.ObterPorCpf(cadastroCliente.Cpf);
+
+            if (clienteExistente != null) 
+            {
+                throw new InvalidOperationException("Cliente Cadastrado");
+            }
+
             var id = Guid.NewGuid().ToString();
 
             var cliente = ClienteAdapter.ToModel(id, cadastroCliente);
