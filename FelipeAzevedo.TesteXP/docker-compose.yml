@@ -1,0 +1,24 @@
+version: '3'
+services:
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "123mssql@"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+  mssqltools:
+    image: mcr.microsoft.com/mssql-tools
+    depends_on:
+      - mssql-server
+    volumes:
+      - ./01-BaseCadastro.sql:/tmp/01-BaseCadastro.sql
+      - ./init-basecadastro.sh:/tmp/init-basecadastro.sh
+    command: /bin/bash ./tmp/init-basecadastro.sh
+  teste-xp-app:
+    build: .
+    ports: 
+      - "8080:80"
+    depends_on: 
+      - mssql-server

@@ -1,0 +1,1 @@
+/opt/mssql-tools/bin/sqlcmd -S mssql-server -U sa -P 123mssql@ -d master -i /tmp/01-BaseCadastro.sql
